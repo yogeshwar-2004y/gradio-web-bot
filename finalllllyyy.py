@@ -64,7 +64,6 @@ def get_response(input_string):
 
         # Add score to list
         score_list.append(response_score)
-        # Debugging: Find the best phrase
         # print(response_score, response["user_input"])
 
     # Find the best response and return it if they're not all 0
@@ -84,12 +83,9 @@ def get_response(input_string):
 
     else:
         invalid_inputs = load_invalid_inputs()
-        if input_string in invalid_inputs:
-            res = invalid_inputs[input_string]
-        else:
-            res = random_responses.random_string()
-            invalid_inputs[input_string] = res
-            save_invalid_inputs(invalid_inputs)
+        res = random_responses.random_string()
+        invalid_inputs[input_string] = res
+        save_invalid_inputs(invalid_inputs)
         return res
     
 ADMIN =input("ADMIN: ")
